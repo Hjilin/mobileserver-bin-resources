@@ -1,53 +1,42 @@
 {
   "manifest_version": "1.0",
   "updated": "2026-09-17",
-  "description": "MobileServer 安卓本地服务器组件清单：所有二进制均为 arm64 (aarch64, Android bionic) 独立静态包，运行时由 APP 下载、解压到 files/server/bin/ 下执行。",
-  "base_url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0",
+  "description": "MobileServer 安卓本地服务器组件清单（arm64）。运行时由 APP 下载解压到 files/server/bin/<组件>/ 下，启动时自动设置 LD_LIBRARY_PATH 指向其 lib/ 与 dep/。",
   "components": {
     "nginx": {
       "version": "1.26.2",
       "license": "BSD 2-Clause",
       "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/nginx-1.26.2-arm64.zip",
-      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_nginx_ZIP",
-      "extract_to": "bin/nginx",
-      "entry": "nginx",
-      "note": "解压后应得到 bin/nginx/nginx 可执行文件"
+      "sha256": "6c7cc314f0834addf401deb896d9c86a631844eb6dbd975b976386c186801719",
+      "entry": "bin/nginx"
     },
     "php": {
-      "version": "8.3.0",
-      "license": "PHP License 3.01",
-      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/php-8.3.0-arm64.zip",
-      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_php_ZIP",
-      "extract_to": "bin/php",
-      "entry": "php-cgi",
-      "note": "解压后应得到 bin/php/php-cgi 可执行文件（CGI模式，配合Nginx fastcgi 9000端口）"
+      "version": "8.5.1",
+      "license": "PHP License 3.01（已剔除 SourceGuardian 闭源扩展）",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/php-8.5.1-combined-arm64.zip",
+      "sha256": "e3d075ed45382973b2ddf82dec06d10532ac595dbb351e74da8beffc198d8f6b",
+      "entry": "bin/php-cgi"
     },
     "mariadb": {
-      "version": "11.4.2",
-      "license": "GPL v2",
-      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/mariadb-11.4.2-arm64.zip",
-      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_mariadb_ZIP",
-      "extract_to": "bin/mariadb",
-      "entry": "mariadbd",
-      "note": "解压后应得到 bin/mariadb/mariadbd（含必需的 share/ 字符集与插件库）"
+      "version": "12.3.2",
+      "license": "GPL v2（独立进程运行，源码: https://mariadb.org/source/）",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/mariadb-12.3.2-arm64.zip",
+      "sha256": "ae99fb7523c75cc586a0da30f090a36479fa898a095d204a5d04caa63f74fd5e",
+      "entry": "bin/mariadbd"
     },
     "redis": {
-      "version": "7.2.5",
-      "license": "BSD 3-Clause（选用7.2避开SSPL）",
-      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/redis-7.2.5-arm64.zip",
-      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_redis_ZIP",
-      "extract_to": "bin/redis",
-      "entry": "redis-server",
-      "note": "解压后应得到 bin/redis/redis-server"
+      "version": "8.8.0",
+      "license": "RSALv2/SSPL（独立进程调用，未修改源码）",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/redis-8.8.0-arm64.zip",
+      "sha256": "0340b0ccc5494a70bbc565a163d0d00c606aa06bccb08ad804975224eae434bb",
+      "entry": "bin/redis-server"
     },
     "openlist": {
-      "version": "3.10.0",
-      "license": "AGPL-3.0",
-      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/openlist-3.10.0-arm64.zip",
-      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_openlist_ZIP",
-      "extract_to": "bin/openlist",
-      "entry": "openlist",
-      "note": "Go 静态编译版，解压后应得到 bin/openlist/openlist"
+      "version": "4.2.6",
+      "license": "AGPL-3.0（官方 android-arm64 静态包）",
+      "url": "https://github.com/OpenListTeam/OpenList/releases/download/v4.2.6/openlist-android-arm64.tar.gz",
+      "sha256": "a614fdb0b703f104f2937981d664a4bf66484a2a19f6bf124b224ecd561e666e",
+      "entry": "bin/openlist"
     }
   }
 }

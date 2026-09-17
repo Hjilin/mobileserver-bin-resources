@@ -33,8 +33,8 @@
     },
     "openlist": {
       "version": "4.2.6",
-      "license": "AGPL-3.0（官方 android-arm64 静态包）",
-      "url": "https://github.com/OpenListTeam/OpenList/releases/download/v4.2.6/openlist-android-arm64.tar.gz",
+      "license": "AGPL-3.0（官方 android-arm64 静态包，重新打包）",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/openlist-4.2.6-arm64.zip",
       "sha256": "a614fdb0b703f104f2937981d664a4bf66484a2a19f6bf124b224ecd561e666e",
       "entry": "bin/openlist"
     }

@@ -1,0 +1,53 @@
+{
+  "manifest_version": "1.0",
+  "updated": "2026-09-17",
+  "description": "MobileServer 安卓本地服务器组件清单：所有二进制均为 arm64 (aarch64, Android bionic) 独立静态包，运行时由 APP 下载、解压到 files/server/bin/ 下执行。",
+  "base_url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0",
+  "components": {
+    "nginx": {
+      "version": "1.26.2",
+      "license": "BSD 2-Clause",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/nginx-1.26.2-arm64.zip",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_nginx_ZIP",
+      "extract_to": "bin/nginx",
+      "entry": "nginx",
+      "note": "解压后应得到 bin/nginx/nginx 可执行文件"
+    },
+    "php": {
+      "version": "8.3.0",
+      "license": "PHP License 3.01",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/php-8.3.0-arm64.zip",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_php_ZIP",
+      "extract_to": "bin/php",
+      "entry": "php-cgi",
+      "note": "解压后应得到 bin/php/php-cgi 可执行文件（CGI模式，配合Nginx fastcgi 9000端口）"
+    },
+    "mariadb": {
+      "version": "11.4.2",
+      "license": "GPL v2",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/mariadb-11.4.2-arm64.zip",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_mariadb_ZIP",
+      "extract_to": "bin/mariadb",
+      "entry": "mariadbd",
+      "note": "解压后应得到 bin/mariadb/mariadbd（含必需的 share/ 字符集与插件库）"
+    },
+    "redis": {
+      "version": "7.2.5",
+      "license": "BSD 3-Clause（选用7.2避开SSPL）",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/redis-7.2.5-arm64.zip",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_redis_ZIP",
+      "extract_to": "bin/redis",
+      "entry": "redis-server",
+      "note": "解压后应得到 bin/redis/redis-server"
+    },
+    "openlist": {
+      "version": "3.10.0",
+      "license": "AGPL-3.0",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/openlist-3.10.0-arm64.zip",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_openlist_ZIP",
+      "extract_to": "bin/openlist",
+      "entry": "openlist",
+      "note": "Go 静态编译版，解压后应得到 bin/openlist/openlist"
+    }
+  }
+}

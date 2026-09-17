@@ -1,0 +1,31 @@
+# mariadb.cnf 模板（本地单机版）
+# MariaDB 11.x，手机嵌入式参数
+
+[mysqld]
+# 仅本机访问
+bind-address = 127.0.0.1
+port = 3306
+
+# 数据目录（APP data/mysql，首次自动 initialize-insecure）
+datadir = ${DATA_DIR}/mysql
+socket  = ${DATA_DIR}/mysql/mysql.sock
+pid-file = ${DATA_DIR}/mysql/mysql.pid
+
+# 字符集
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+# 手机资源：小缓冲、关繁重特性
+skip-networking = 0
+skip-name-resolve
+innodb_buffer_pool_size = 64M
+innodb_log_buffer_size = 4M
+max_connections = 20
+
+# 日志
+log-error = ${SERVER_ROOT}/logs/mariadb_error.log
+
+[client]
+port = 3306
+socket = ${DATA_DIR}/mysql/mysql.sock
+default-character-set = utf8mb4

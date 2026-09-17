@@ -1,0 +1,28 @@
+; php.ini 模板（资源仓库兜底版）
+; APP 运行时以 conf 目录加载，关键参数按手机资源调优
+
+[PHP]
+engine = On
+short_open_tag = On
+; 手机上不宜过大，按需调整
+memory_limit = 128M
+upload_max_filesize = 100M
+post_max_size = 100M
+max_execution_time = 60
+max_input_time = 60
+
+; 错误报告（本地调试可打开 display_errors）
+display_errors = Off
+log_errors = On
+error_log = ${SERVER_ROOT}/logs/php_error.log
+
+; 扩展目录（APP 解压 PHP 包时放入）
+extension_dir = ${PHP_DIR}/lib/php/extensions/no-debug-non-zts-20240924/
+; 常用扩展（按需开启对应 so）
+extension = mysqli.so
+extension = pdo_mysql.so
+extension = gd.so
+extension = opcache.so
+
+[Date]
+date.timezone = Asia/Shanghai

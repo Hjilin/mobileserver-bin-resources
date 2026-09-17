@@ -1,0 +1,58 @@
+# Nginx 配置模板（资源仓库兜底版）
+# APP 首次启动时由 BridgeManager.generateNginxConf() 动态生成，
+# 本文件仅作标准参考；${变量} 在 APP 运行时被替换为真实路径/端口。
+
+user  nobody nogroup;
+worker_processes  auto;
+pid  ${SERVER_ROOT}/nginx.pid;
+error_log  ${SERVER_ROOT}/logs/nginx_error.log  warn;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    server {
+        # 统一入口端口（同时挂 PHP站点 与 OpenList 网盘）
+        listen       8080;
+        server_name  localhost;
+
+        # 内置统一管理面板（APP 内置 webpanel 静态页）
+        location / {
+            root   ${SERVER_ROOT}/webpanel;
+            index  index.html;
+        }
+
+        # PHP 站点
+        location /web/ {
+            alias  ${WWW_DIR}/;
+            index  index.php index.html;
+        }
+        location ~ \.php$ {
+            root           ${WWW_DIR};
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+
+        # OpenList 网盘：统一入口 /alist/ 转发到 5244
+        location /alist/ {
+            proxy_pass http://127.0.0.1:5244/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   ${WWW_DIR};
+        }
+    }
+}

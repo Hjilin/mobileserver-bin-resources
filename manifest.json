@@ -37,6 +37,13 @@
       "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/openlist-4.2.6-arm64.zip",
       "sha256": "a614fdb0b703f104f2937981d664a4bf66484a2a19f6bf124b224ecd561e666e",
       "entry": "bin/openlist"
+    },
+    "frp": {
+      "version": "0.71.0",
+      "license": "Apache-2.0（官方 linux_arm64 静态编译，重新打包）",
+      "url": "https://github.com/Hjilin/mobileserver-bin-resources/releases/download/v1.0.0/frp-0.71.0-arm64.zip",
+      "sha256": "4632a397cb754ad53d13747ae27709f8ee4e94651fe999ff12cd28ca6a310f70",
+      "entry": "bin/frpc"
     }
   }
 }
